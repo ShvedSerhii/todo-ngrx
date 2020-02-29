@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ToDoListComponent } from './components/to-do-list/to-do-list.component';
 import { ToDoComponent } from './components/to-do-list/to-do/to-do.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +19,15 @@ import { ToDoComponent } from './components/to-do-list/to-do/to-do.component';
     RegisterComponent,
     HeaderComponent,
     ToDoListComponent,
-    ToDoComponent
+    ToDoComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
