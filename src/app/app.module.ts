@@ -18,6 +18,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { ToDoListComponent } from './components/to-do-list/to-do-list.component';
 import { ToDoComponent } from './components/to-do-list/to-do/to-do.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { StoreModule } from '@ngrx/store';
+import { AuthEffects } from './store/effects/auth.effects';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers } from './store/app.states';
+import { AuthService } from './services/auth/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,6 +37,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
@@ -39,9 +46,12 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     MatListModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    StoreModule.forRoot(reducers, {}),
+    EffectsModule.forRoot([AuthEffects]),
   ],
-  providers: [CookieService],
+  providers: [CookieService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 
