@@ -1,1 +1,41 @@
-<p>register works!</p>
+<div class="wrapper">
+    <div class="login-container">
+      <h1>Registration</h1>
+      <form class="login-form" [formGroup]="form.formGroup" (ngSubmit)="onSubmit(form.formGroup)">
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email">
+          <mat-error *ngIf="form.model.email">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+          <mat-error *ngIf="form.model.password">
+            A password can include any combination of letters and numbers. Min 6 characters.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Name" formControlName="name">
+          <mat-error *ngIf="form.model.name">
+            A name can include any combination of letters. Min 3 characters.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Surname" formControlName="surname">
+          <mat-error *ngIf="form.model.surname">
+            A surname can include any combination of letters. Min 2 characters.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Phone" formControlName="phone">
+          <mat-error *ngIf="form.model.phone">
+            Please enter a valid phone number
+          </mat-error>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" [disabled]="form.formGroup.invalid">Registration</button>
+          <a routerLink="/login" class="cancel">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>

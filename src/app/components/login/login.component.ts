@@ -21,10 +21,6 @@ export class LoginComponent {
     this.form = new LoginForm(this.model);
   }
 
-  // public logout(): void {
-  //   this.cookie.deleteCookie('token');
-  // }
-
   public onSubmit(form): void {
     console.log(form.value);
   }
