@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { RegisterModel } from './register.model';
 import RegisterForm from './register.form';
 import { Router } from '@angular/router';
+import { SignUp } from 'src/app/store/actions/auth.actions';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.states';
 
 @Component({
   selector: 'app-register',
@@ -13,12 +16,13 @@ export class RegisterComponent {
   public form: RegisterForm;
   constructor(
     private router: Router,
+    private store: Store<AppState>
   ) {
     this.model = new RegisterModel();
     this.form = new RegisterForm(this.model);
   }
 
   public onSubmit(form): void {
-    console.log(form.value);
+    this.store.dispatch(new SignUp(form.value));
   }
 }

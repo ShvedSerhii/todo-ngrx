@@ -17,13 +17,13 @@ export class AuthService {
     return this.cookie.getCookie('token');
   }
 
-  logIn(email: string, password: string): Observable<any> {
+  logIn(payload): Observable<any> {
     const url = `${this.BASE_URL}/api/login`;
-    return this.http.post<User>(url, JSON.stringify({email, password}));
+    return this.http.post<User>(url, JSON.stringify(payload));
   }
 
-  signUp(email: string, password: string): Observable<User> {
+  signUp(payload): Observable<User> {
     const url = `${this.BASE_URL}/api/registration`;
-    return this.http.post<User>(url, {email, password});
+    return this.http.post<User>(url, payload);
   }
 }

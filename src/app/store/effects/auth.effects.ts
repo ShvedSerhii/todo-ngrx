@@ -31,7 +31,7 @@ export class AuthEffects {
     ofType(AuthActionTypes.LOGIN),
     map((action: LogIn) => action.payload),
     switchMap(payload => {
-      return this.authService.logIn(payload.email, payload.password).pipe(
+      return this.authService.logIn(payload).pipe(
         map((user) => {
           return new LogInSuccess({token: user.token, email: payload.email});
         }),
@@ -60,7 +60,7 @@ export class AuthEffects {
     ofType(AuthActionTypes.SIGNUP),
     map((action: SignUp) => action.payload),
     switchMap(payload => {
-      return this.authService.signUp(payload.email, payload.password).pipe(
+      return this.authService.signUp(payload).pipe(
         map((user) => {
           return new SignUpSuccess({token: user.token, email: payload.email});
         }),
@@ -73,7 +73,7 @@ export class AuthEffects {
   SignUpSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.SIGNUP_SUCCESS),
     tap((user) => {
-      localStorage.setItem('token', user.payload.token);
+      this.cookie.setCookie('token', user.payload.token);
       this.router.navigateByUrl('/');
     })
   );
