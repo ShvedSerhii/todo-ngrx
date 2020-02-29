@@ -88,13 +88,7 @@ export class AuthEffects {
     ofType(AuthActionTypes.LOGOUT),
     tap((user) => {
       this.cookie.deleteCookie('token');
+      this.router.navigateByUrl('/login');
     })
   );
-
-  @Effect({ dispatch: false })
-  GetStatus: Observable<any> = this.actions.pipe(
-    ofType(AuthActionTypes.GET_STATUS),
-    switchMap(payload => {
-      return this.authService.getStatus();
-    }));
 } 
