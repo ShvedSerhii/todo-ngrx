@@ -1,3 +1,4 @@
+import { CookiesService } from 'src/app/services/cookies/cookies.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/models/user.model';
@@ -10,10 +11,10 @@ import { Observable } from 'rxjs';
 export class AuthService {
   private BASE_URL = 'https://lectorium.herokuapp.com';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private cookie: CookiesService) {}
 
   getToken(): string {
-    return localStorage.getItem('token');
+    return this.cookie.getCookie('token');
   }
 
   logIn(email: string, password: string): Observable<any> {
