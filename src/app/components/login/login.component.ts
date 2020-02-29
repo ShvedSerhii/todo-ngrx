@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { LoginModel } from './login.model';
 import LoginForm from './login.form';
 import { Router } from '@angular/router';
-import { CookiesService } from 'src/app/services/cookies.service';
+import { CookiesService } from 'src/app/services/cookies/cookies.service';
 
 @Component({
   selector: 'app-login',
