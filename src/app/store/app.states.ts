@@ -11,4 +11,4 @@ export const reducers = {
   auth: auth.reducer
 };
 
-export const selectAuthState = createFeatureSelector<AppState>('auth'); 
+export const selectAuthState = createFeatureSelector<AppState>('auth');

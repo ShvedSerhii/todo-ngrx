@@ -36,7 +36,7 @@ export class AuthEffects {
           return new LogInSuccess({token: user.token, email: payload.email});
         }),
         catchError((error) => {
-          return of(new LogInFailure({ error: error }));
+          return of(new LogInFailure({ error }));
         }));
     }));
 
@@ -65,7 +65,7 @@ export class AuthEffects {
           return new SignUpSuccess({token: user.token, email: payload.email});
         }),
         catchError((error) => {
-          return of(new SignUpFailure({ error: error }));
+          return of(new SignUpFailure({ error }));
         }));
     }));
 
@@ -91,4 +91,4 @@ export class AuthEffects {
       this.router.navigateByUrl('/login');
     })
   );
-} 
+}
