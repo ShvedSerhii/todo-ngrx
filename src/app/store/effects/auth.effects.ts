@@ -1,3 +1,4 @@
+import { CookiesService } from './../../services/cookies/cookies.service';
 import { Injectable } from '@angular/core';
 import { Action } from '@ngrx/store';
 import { Router } from '@angular/router';
@@ -22,6 +23,7 @@ export class AuthEffects {
     private actions: Actions,
     private authService: AuthService,
     private router: Router,
+    private cookie: CookiesService
   ) {}
 
   @Effect()
@@ -43,7 +45,7 @@ export class AuthEffects {
   LogInSuccess: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGIN_SUCCESS),
     tap((user) => {
-      localStorage.setItem('token', user.payload.token);
+      this.cookie.setCookie('token', user.payload.token);
       this.router.navigateByUrl('/');
     })
   );
@@ -85,7 +87,7 @@ export class AuthEffects {
   public LogOut: Observable<any> = this.actions.pipe(
     ofType(AuthActionTypes.LOGOUT),
     tap((user) => {
-      localStorage.removeItem('token');
+      this.cookie.deleteCookie('token');
     })
   );
 
