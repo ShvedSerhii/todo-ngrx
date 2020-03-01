@@ -1,7 +1,7 @@
 import { LogOut } from './../../store/actions/auth.actions';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.states';
+import { AppState } from 'src/app/store/state/app.state';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({

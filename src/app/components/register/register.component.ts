@@ -4,7 +4,7 @@ import RegisterForm from './register.form';
 import { Router } from '@angular/router';
 import { SignUp } from 'src/app/store/actions/auth.actions';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.states';
+import { IAppState } from 'src/app/store/state/app.state';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +16,7 @@ export class RegisterComponent {
   public form: RegisterForm;
   constructor(
     private router: Router,
-    private store: Store<AppState>
+    private store: Store<IAppState>
   ) {
     this.model = new RegisterModel();
     this.form = new RegisterForm(this.model);

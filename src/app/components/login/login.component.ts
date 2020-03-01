@@ -5,7 +5,7 @@ import LoginForm from './login.form';
 import { Router } from '@angular/router';
 import { LogIn } from 'src/app/store/actions/auth.actions';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/store/app.states';
+import { IAppState } from 'src/app/store/state/app.state';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent {
   public model: LoginModel;
   public form: LoginForm;
   constructor(
-    private store: Store<AppState>,
+    private store: Store<IAppState>,
     private router: Router,
   ) {
     this.model = new LoginModel();

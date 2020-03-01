@@ -1,3 +1,4 @@
+import { appReducers } from './store/reducers/app.redusers';
 import { CookieService } from 'ngx-cookie-service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +23,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { StoreModule } from '@ngrx/store';
 import { AuthEffects } from './store/effects/auth.effects';
 import { EffectsModule } from '@ngrx/effects';
-import { reducers } from './store/app.states';
 import { AuthService } from './services/auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -47,7 +48,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    StoreModule.forRoot(reducers, {}),
+    MatProgressSpinnerModule,
+    StoreModule.forRoot(appReducers, {}),
     EffectsModule.forRoot([AuthEffects]),
   ],
   providers: [CookieService, AuthService],

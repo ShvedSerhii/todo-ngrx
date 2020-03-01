@@ -1,24 +1,8 @@
 
 import { AuthActionTypes, All } from '../actions/auth.actions';
-import { User } from 'src/app/models/user.model';
+import { IAuthState, initialAuthState } from '../state/auth.state';
 
-
-export interface State {
-  // is a user authenticated?
-  isAuthenticated: boolean;
-  // if authenticated, there should be a user object
-  user: User | null;
-  // error message
-  errorMessage: string | null;
-}
-
-export const initialState: State = {
-  isAuthenticated: false,
-  user: null,
-  errorMessage: null
-};
-
-export function reducer(state = initialState, action: All): State {
+export function authReducer(state = initialAuthState, action: All): IAuthState {
   switch (action.type) {
     case AuthActionTypes.LOGIN_SUCCESS: {
       return {
@@ -55,7 +39,7 @@ export function reducer(state = initialState, action: All): State {
       };
     }
     case AuthActionTypes.LOGOUT: {
-      return initialState;
+      return initialAuthState;
     }
     default: {
       return state;
