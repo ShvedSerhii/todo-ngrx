@@ -1,8 +1,8 @@
 
-import { AuthActionTypes, All } from '../actions/auth.actions';
+import { AuthActionTypes, AllAuthActions } from '../actions/auth.actions';
 import { IAuthState, initialAuthState } from '../state/auth.state';
 
-export function authReducer(state = initialAuthState, action: All): IAuthState {
+export function authReducer(state = initialAuthState, action: AllAuthActions): IAuthState {
   switch (action.type) {
     case AuthActionTypes.LOGIN_SUCCESS: {
       return {

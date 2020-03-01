@@ -46,7 +46,7 @@ export class LogOut implements Action {
 }
 
 
-export type All =
+export type AllAuthActions =
   | LogIn
   | LogInSuccess
   | LogInFailure
