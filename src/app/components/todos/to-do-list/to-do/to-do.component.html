@@ -1,8 +1,8 @@
 <li class="todo-card-item">
     <mat-card class="todo-card" *ngIf="!todo?.isEditabled && todo?.isVisible">
       <mat-card-header>
-        <mat-card-title [class.completed]="todo.isCompleted">
-          <h3>{{todo.text}}</h3>
+        <mat-card-title [class.completed]="todo.status">
+          <h3>{{todo.title}}</h3>
         </mat-card-title>
       </mat-card-header>
       <mat-card-actions>
@@ -15,7 +15,7 @@
       <mat-card-header>
         <mat-card-title>
           <mat-form-field>
-            <input matInput type="text" name="todo-title-{{todo.id}}" focused="true" [placeholder]="'Edit todo'" [(ngModel)]="todo.text">
+            <input matInput type="text" name="todo-title-{{todo._id}}" focused="true" [placeholder]="'Edit todo'" [(ngModel)]="todo.title">
           </mat-form-field>
         </mat-card-title>
       </mat-card-header> 

@@ -22,7 +22,7 @@ export class TodosComponent {
   }
 
   onAddTodo(newTodo) {
-      this.store.dispatch(new TodoActions.AddTodo(newTodo.text));
+      this.store.dispatch(new TodoActions.AddTodo(newTodo.title));
   }
 
   onCompletedTodo(todo) {

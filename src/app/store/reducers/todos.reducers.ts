@@ -8,9 +8,9 @@ export function todosReducer(oldState = initialTodosState, action: AllTodosActio
   switch (action.type) {
     case TodosActionTypes.ADD_TODO_SUCCESS: {
       const newTodosArray = new Array<Todo>({
-        id: String(state.todos.length + 1),
-        text: action.payload,
-        isCompleted: false, 
+        _id: String(state.todos.length + 1),
+        title: action.payload,
+        status: false, 
         isVisible: true
       });
       state.todos = state.todos.concat(newTodosArray);
@@ -18,32 +18,32 @@ export function todosReducer(oldState = initialTodosState, action: AllTodosActio
     }
     case TodosActionTypes.COMPLETE_TODO: {
       state.todos = state.todos.map(todo => {
-        return todo.id !== action.payload.id
+        return todo._id !== action.payload._id
           ? todo
-          : Object.assign({}, todo, { isCompleted: true });
+          : Object.assign({}, todo, { status: true });
       });
       return state;
     }
     case TodosActionTypes.DELETE_TODO: {
       state.todos = state.todos.filter(todo => {
-        return todo.id !== action.payload.id;
+        return todo._id !== action.payload._id;
       });
       return state;
     }
     case TodosActionTypes.UPDATE_TODO: {
       state.todos = state.todos.map(todo => {
-        return todo.id !== action.payload.id
+        return todo._id !== action.payload._id
           ? todo
           : Object.assign({}, todo, {
               isEditabled: false,
-              text: action.payload.text
+              title: action.payload.title
             });
       });
       return state;
     }
     case TodosActionTypes.EDIT_TODO: {
       state.todos = state.todos.map(todo => {
-        return todo.id !== action.payload.id
+        return todo._id !== action.payload._id
           ? todo
           : Object.assign({}, todo, { isEditabled: true });
       });
@@ -57,7 +57,7 @@ export function todosReducer(oldState = initialTodosState, action: AllTodosActio
     }
     case TodosActionTypes.PENDING: {
       state.todos = state.todos.map(todo => {
-        if (!todo.isCompleted) {
+        if (!todo.status) {
           return Object.assign({}, todo, { isVisible: true });
         } else {
           return Object.assign({}, todo, { isVisible: false });
@@ -67,7 +67,7 @@ export function todosReducer(oldState = initialTodosState, action: AllTodosActio
     }
     case TodosActionTypes.COMPLETE: {
       state.todos = state.todos.map(todo => {
-        if (!todo.isCompleted) {
+        if (!todo.status) {
           return Object.assign({}, todo, { isVisible: false });
         } else {
           return Object.assign({}, todo, { isVisible: true });

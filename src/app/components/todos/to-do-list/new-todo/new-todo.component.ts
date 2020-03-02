@@ -18,7 +18,7 @@ export class NewTodoComponent implements OnInit {
 
   onSaveTodo() {
     if (this.newTodo) {
-      this.onCreateTodo.emit({text: this.newTodo});
+      this.onCreateTodo.emit({title: this.newTodo});
     }
     this.newTodo = '';
   }
