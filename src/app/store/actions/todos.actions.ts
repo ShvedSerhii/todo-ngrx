@@ -1,118 +1,67 @@
 import { Action } from "@ngrx/store";
 import { Todo } from 'src/app/models/todos.model';
 
-/**
- * declare contstants.
- */
-export const ADD_TODO = "[todo] ADD_TODO";
-export const UPDATE_TODO = "[todo] UPDATE_TODO";
-export const DELETE_TODO = "[todo] DELETE_TODO";
-export const COMPLETE_TODO = "[todo] COMPLETE_TODO";
-export const EDIT_TODO = "[todo] EDIT_TODO";
+export enum TodosActionTypes {
+ADD_TODO = "[todo] ADD_TODO",
+ADD_TODO_SUCCESS = "[todo] ADD_TODO_SUCCESS",
+UPDATE_TODO = "[todo] UPDATE_TODO",
+DELETE_TODO = "[todo] DELETE_TODO",
+COMPLETE_TODO = "[todo] COMPLETE_TODO",
+EDIT_TODO = "[todo] EDIT_TODO",
+COMPLETE = "[filter] COMPLETE",
+PENDING = "[filter] PENDING",
+DELETED = "[filter] DELETED",
+ALL = "[filter] ALL",
+}
 
-export const COMPLETE = "[filter] COMPLETE";
-export const PENDING = "[filter] PENDING";
-export const DELETED = "[filter] DELETED";
-export const ALL = "[filter] ALL";
-/**
- * Add Todo action type.
- * @export
- * @class AddTodo
- * @implements {Action}
- */
 export class AddTodo implements Action {
-  readonly type = ADD_TODO;
-
-  constructor(public payload: string) {}
+  readonly type = TodosActionTypes.ADD_TODO;
+  constructor(public payload: any) {}
 }
 
-/**
- * Update Todo action type.
- * @export
- * @class UpdateTodo
- * @implements {Action}
- */
+export class AddTodoSuccess implements Action {
+  readonly type = TodosActionTypes.ADD_TODO_SUCCESS;
+  constructor(public payload: any) {}
+}
+
 export class UpdateTodo implements Action {
-  readonly type = UPDATE_TODO;
-
-  constructor(public payload: Todo) {}
+  readonly type = TodosActionTypes.UPDATE_TODO;
+  constructor(public payload: any) {}
 }
 
-/**
- * Delete Todo action type.
- * @export
- * @class DeleteTodo
- * @implements {Action}
- */
 export class DeleteTodo implements Action {
-  readonly type = DELETE_TODO;
-
-  constructor(public payload: Todo) {}
+  readonly type = TodosActionTypes.DELETE_TODO;
+  constructor(public payload: any) {}
 }
-/**
- * Complete Todo action type.
- * @export
- * @class CompleteTodo
- * @implements {Action}
- */
 export class CompleteTodo implements Action {
-  readonly type = COMPLETE_TODO;
-
-  constructor(public payload: Todo) {}
+  readonly type = TodosActionTypes.COMPLETE_TODO;
+  constructor(public payload: any) {}
 }
 
-/**
- * Edit Todo action type
- * @export
- * @class EditTodo
- * @implements {Action}
- */
 export class EditTodo implements Action {
-  readonly type = EDIT_TODO;
+  readonly type = TodosActionTypes.EDIT_TODO;
+  constructor(public payload: any) {}
+}
 
-  constructor(public payload: Todo) {}
-}
-/**
- * Complete filter action type
- * @export
- * @class Complete
- * @implements {Action}
- */
 export class Complete implements Action {
-  readonly type = COMPLETE;
+  readonly type = TodosActionTypes.COMPLETE; 
 }
-/**
- * Pending filter action type
- * @export
- * @class Pending
- * @implements {Action}
- */
+
 export class Pending implements Action {
-  readonly type = PENDING;
+  readonly type = TodosActionTypes.PENDING;
 }
-/**
- * Deleted filter action type
- * @export
- * @class Deleted
- * @implements {Action}
- */
+
 export class Deleted implements Action {
-  readonly type = DELETED;
+  readonly type = TodosActionTypes.DELETED;
 }
-/**
- * All filter action type
- * @export
- * @class All
- * @implements {Action}
- */
+
 export class All implements Action {
-  readonly type = ALL;
-}
-/**
- * declare type all actions.
- */
+  readonly type = TodosActionTypes.ALL;
+} 
+
 export type AllTodosActions =
   | AddTodo
+  | AddTodoSuccess
   | UpdateTodo
   | DeleteTodo
   | CompleteTodo
@@ -121,3 +70,4 @@ export type AllTodosActions =
   | Pending
   | Deleted
   | All;
+ 

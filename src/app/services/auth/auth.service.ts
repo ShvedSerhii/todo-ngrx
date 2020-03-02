@@ -4,9 +4,6 @@ import { Injectable } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { Observable } from 'rxjs';
 
-
-
-
 @Injectable()
 export class AuthService {
   private BASE_URL = 'https://lectorium.herokuapp.com';

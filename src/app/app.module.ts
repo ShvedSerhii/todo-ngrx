@@ -27,6 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TodosComponent } from './components/todos/todos.component';
 import { ToDoComponent } from './components/todos/to-do-list/to-do/to-do.component';
 import { NewTodoComponent } from './components/todos/to-do-list/new-todo/new-todo.component';
+import { TodosService } from './services/todos/todos.service';
+import { TodosEffects } from './store/effects/todos.effects';
 
  
 @NgModule({
@@ -56,9 +58,9 @@ import { NewTodoComponent } from './components/todos/to-do-list/new-todo/new-tod
     MatRadioModule,
     MatProgressSpinnerModule,
     StoreModule.forRoot(appReducers, {}),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, TodosEffects]),
   ],
-  providers: [CookieService, AuthService],
+  providers: [CookieService, AuthService, TodosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
