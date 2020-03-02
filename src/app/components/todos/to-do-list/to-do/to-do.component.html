@@ -5,11 +5,6 @@
           <h3>{{todo.text}}</h3>
         </mat-card-title>
       </mat-card-header>
-      <mat-card-content>
-        <p>
-          Fill Explanation.
-        </p>
-      </mat-card-content>
       <mat-card-actions>
         <button mat-raised-button color="primary" (click)="onCompletedTodo(todo)">Done</button>
         <button mat-raised-button color="accent" (click)="onEditTodo(todo)">Edit</button>
@@ -20,15 +15,10 @@
       <mat-card-header>
         <mat-card-title>
           <mat-form-field>
-            <input matInput type="text" name="todo-title-{{todo.id}}" focused="true" [placeholder]="'Edit title'" [(ngModel)]="todo.text">
+            <input matInput type="text" name="todo-title-{{todo.id}}" focused="true" [placeholder]="'Edit todo'" [(ngModel)]="todo.text">
           </mat-form-field>
         </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>
-          Fill Explanation.
-        </p>
-      </mat-card-content>
+      </mat-card-header> 
       <mat-card-actions>
         <button mat-raised-button color="primary" (click)="onUpdateTodo(todo)">Update</button>
         <button mat-raised-button color="warn" (click)="onDeletedTodo(todo)">Delete</button>
