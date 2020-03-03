@@ -20,7 +20,7 @@ export class TodosComponent {
     console.log('select = ' + this.todos$);
     this.store.subscribe((state) => {
       console.log('state', state);
-    }); 
+    });
   }
 
   onAddTodo(newTodo) {
@@ -30,7 +30,7 @@ export class TodosComponent {
   onCompletedTodo(todo: Todo) {
     todo.status = (todo.status === 'done') ? 'undone' : 'done';
     this.store.dispatch(new TodoActions.UpdateTodo(todo));
-  } 
+  }
 
   onDeletedTodo(todo) {
     this.store.dispatch(new TodoActions.DeleteTodo(todo));

@@ -6,6 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./new-todo.component.scss']
 })
 export class NewTodoComponent implements OnInit {
+  // tslint:disable-next-line:no-output-on-prefix
   @Output() onCreateTodo;
   newTodo: string;
   constructor() {

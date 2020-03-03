@@ -17,56 +17,56 @@ export class TodosService {
     const url = `${this.BASE_URL}/api/todolist`;
     const httpOptions = {
       headers: new HttpHeaders({
-        "x-apikey": this.cookie.getCookie('token'),
-        "Content-Type": 'application/json'
+        'x-apikey': this.cookie.getCookie('token'),
+        'Content-Type': 'application/json'
       })
     };
     const data = {
-      "userId": this.cookie.getCookie('token'),
-      "title": payload,
-      "description": payload,
-      "status": "undone", 
-      "selected": false
+      userId: this.cookie.getCookie('token'),
+      title: payload,
+      description: payload,
+      status: 'undone',
+      selected: false
+  };
+    return this.http.post(url, data, httpOptions);
   }
-    return this.http.post(url, data, httpOptions); 
-  } 
 
   getTodos(): Observable<any> {
     const url = `${this.BASE_URL}/api/todolist`;
     const httpOptions = {
       headers: new HttpHeaders({
-        "x-apikey": this.cookie.getCookie('token')
+        'x-apikey': this.cookie.getCookie('token')
       })
     };
-    return this.http.get(url, httpOptions); 
-  } 
+    return this.http.get(url, httpOptions);
+  }
 
   deleteTodo(payload: Todo): Observable<any> {
     const url = `${this.BASE_URL}/api/todolist/${payload._id}`;
     const httpOptions = {
       headers: new HttpHeaders({
-        "x-apikey": this.cookie.getCookie('token')
+        'x-apikey': this.cookie.getCookie('token')
       })
     };
-    return this.http.delete(url, httpOptions); 
-  } 
+    return this.http.delete(url, httpOptions);
+  }
 
   updateTodo(payload: Todo): Observable<any> {
     const url = `${this.BASE_URL}/api/todolist/${payload._id}`;
     const httpOptions = {
       headers: new HttpHeaders({
-        "x-apikey": this.cookie.getCookie('token'),
-        "Content-Type": 'application/json'
+        'x-apikey': this.cookie.getCookie('token'),
+        'Content-Type': 'application/json'
       })
     };
     const data = {
-      "userId": this.cookie.getCookie('token'),
-      "title": payload.title,
-      "description": payload.title,
-      "status": payload.status, 
-      "selected": false
+      userId: this.cookie.getCookie('token'),
+      title: payload.title,
+      description: payload.title,
+      status: payload.status,
+      selected: false
   };
-    return this.http.put(url, JSON.stringify(data), httpOptions); 
-  }  
+    return this.http.put(url, JSON.stringify(data), httpOptions);
+  }
 }
- 
+

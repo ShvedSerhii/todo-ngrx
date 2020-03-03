@@ -39,7 +39,7 @@ export class AuthEffects {
           return of(new LogInFailure({ error }));
         }));
     }));
- 
+
 
   @Effect({ dispatch: false })
   LogInSuccess: Observable<any> = this.actions.pipe(

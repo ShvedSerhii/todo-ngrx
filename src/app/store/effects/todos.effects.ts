@@ -1,7 +1,7 @@
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { TodosActionTypes, AddTodo, AddTodoSuccess, GetTodos, SetTodos, DeleteTodo, UpdateTodo } from '../actions/todos.actions';
+import { TodosActionTypes, AddTodo, GetTodos, SetTodos, DeleteTodo, UpdateTodo } from '../actions/todos.actions';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import { TodosService } from 'src/app/services/todos/todos.service';
 import { Todo } from 'src/app/models/todos.model';
@@ -9,7 +9,7 @@ import { Todo } from 'src/app/models/todos.model';
 
 @Injectable()
 export class TodosEffects {
- 
+
   constructor(
     private actions: Actions, private todosServices: TodosService
   ) {}
@@ -57,8 +57,8 @@ export class TodosEffects {
           //   return of(new LogInFailure({ error }));
           // })
           );
-      })); 
-  
+      }));
+
       @Effect()
       UpdateTodo: Observable<any> = this.actions.pipe(
         ofType(TodosActionTypes.UPDATE_TODO),
@@ -67,11 +67,11 @@ export class TodosEffects {
           return this.todosServices.updateTodo(payload).pipe(
             map(() => {
               return new GetTodos();
-            }), 
+            }),
             // catchError((error) => {
             //   return of(new LogInFailure({ error }));
             // })
             );
-        })); 
-  
+        }));
+
 }

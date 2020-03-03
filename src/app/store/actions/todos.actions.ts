@@ -1,19 +1,17 @@
-import { Action } from "@ngrx/store";
+import { Action } from '@ngrx/store';
 import { Todo } from 'src/app/models/todos.model';
 
 export enum TodosActionTypes {
-SET_TODOS = "[todo] SET_TODO",
-GET_TODOS = "[todo] GET_TODO",
-ADD_TODO = "[todo] ADD_TODO",
-ADD_TODO_SUCCESS = "[todo] ADD_TODO_SUCCESS",
-UPDATE_TODO = "[todo] UPDATE_TODO",
-DELETE_TODO = "[todo] DELETE_TODO",
-COMPLETE_TODO = "[todo] COMPLETE_TODO",
-EDIT_TODO = "[todo] EDIT_TODO",
-COMPLETE = "[filter] COMPLETE",
-PENDING = "[filter] PENDING",
-DELETED = "[filter] DELETED",
-ALL = "[filter] ALL",
+SET_TODOS = '[todo] SET_TODO',
+GET_TODOS = '[todo] GET_TODO',
+ADD_TODO = '[todo] ADD_TODO',
+UPDATE_TODO = '[todo] UPDATE_TODO',
+DELETE_TODO = '[todo] DELETE_TODO',
+COMPLETE_TODO = '[todo] COMPLETE_TODO',
+EDIT_TODO = '[todo] EDIT_TODO',
+COMPLETE = '[filter] COMPLETE',
+PENDING = '[filter] PENDING',
+ALL = '[filter] ALL',
 }
 
 export class SetTodos implements Action {
@@ -27,11 +25,6 @@ export class GetTodos implements Action {
 
 export class AddTodo implements Action {
   readonly type = TodosActionTypes.ADD_TODO;
-  constructor(public payload: any) {}
-}
-
-export class AddTodoSuccess implements Action {
-  readonly type = TodosActionTypes.ADD_TODO_SUCCESS;
   constructor(public payload: any) {}
 }
 
@@ -55,32 +48,26 @@ export class EditTodo implements Action {
 }
 
 export class Complete implements Action {
-  readonly type = TodosActionTypes.COMPLETE; 
+  readonly type = TodosActionTypes.COMPLETE;
 }
 
 export class Pending implements Action {
   readonly type = TodosActionTypes.PENDING;
 }
 
-export class Deleted implements Action {
-  readonly type = TodosActionTypes.DELETED;
-}
-
 export class All implements Action {
   readonly type = TodosActionTypes.ALL;
-} 
+}
 
 export type AllTodosActions =
-  | GetTodos 
+  | GetTodos
   | SetTodos
   | AddTodo
-  | AddTodoSuccess
   | UpdateTodo
   | DeleteTodo
   | CompleteTodo
   | EditTodo
   | Complete
   | Pending
-  | Deleted
   | All;
- 
+

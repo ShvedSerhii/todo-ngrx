@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatRadioModule } from '@angular/material/radio'
+import { MatRadioModule } from '@angular/material/radio';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -30,7 +30,7 @@ import { NewTodoComponent } from './components/todos/to-do-list/new-todo/new-tod
 import { TodosService } from './services/todos/todos.service';
 import { TodosEffects } from './store/effects/todos.effects';
 
- 
+
 @NgModule({
   declarations: [
     AppComponent,

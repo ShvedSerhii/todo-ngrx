@@ -7,6 +7,6 @@ import { ITodosState } from '../state/todos.state';
 const selectTodos = (state: IAppState) => state.todos;
 
 export const getTodos = createSelector(
-  selectTodos, 
+  selectTodos,
   (state: ITodosState) => state.todos
 );
