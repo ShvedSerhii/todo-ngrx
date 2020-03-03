@@ -46,14 +46,14 @@ export function todosReducer(oldState = initialTodosState, action: AllTodosActio
     //   });
     //   return state;
     // }
-    // case TodosActionTypes.EDIT_TODO: {
-    //   state.todos = state.todos.map(todo => {
-    //     return todo._id !== action.payload._id
-    //       ? todo
-    //       : Object.assign({}, todo, { isEditabled: true });
-    //   });
-    //   return state;
-    // }
+    case TodosActionTypes.EDIT_TODO: {
+      state.todos = state.todos.map(todo => {
+        return todo._id !== action.payload._id
+          ? todo
+          : Object.assign({}, todo, { isEditabled: true });
+      });
+      return state;
+    }
     case TodosActionTypes.ALL: {
       state.todos = state.todos.map(todo => {
         return Object.assign({}, todo, { isVisible: true });
