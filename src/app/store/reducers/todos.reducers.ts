@@ -56,13 +56,13 @@ export function todosReducer(oldState = initialTodosState, action: AllTodosActio
     }
     case TodosActionTypes.ALL: {
       state.todos = state.todos.map(todo => {
-        return Object.assign({}, todo, { isVisible: true });
+        return Object.assign({}, todo, { isVisible: false });
       });
       return state;
     }
     case TodosActionTypes.PENDING: {
       state.todos = state.todos.map(todo => {
-        if (!todo.status) {
+        if (todo.status == 'done') {
           return Object.assign({}, todo, { isVisible: true });
         } else {
           return Object.assign({}, todo, { isVisible: false });
@@ -72,12 +72,12 @@ export function todosReducer(oldState = initialTodosState, action: AllTodosActio
     }
     case TodosActionTypes.COMPLETE: {
       state.todos = state.todos.map(todo => {
-        if (!todo.status) {
-          return Object.assign({}, todo, { isVisible: false });
-        } else {
+        if (todo.status == 'undone') {
           return Object.assign({}, todo, { isVisible: true });
+        } else {
+          return Object.assign({}, todo, { isVisible: false });
         }
-      });
+      }); 
       return state;
     }
     default: {
