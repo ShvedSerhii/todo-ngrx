@@ -15,7 +15,9 @@ export class TodosComponent {
   public todos$: Observable<Array<Todo>>;
   public SelectedFilter: boolean;
   constructor(private store: Store<IAppState>) {
-    this.todos$ = this.store.pipe(select(getTodos));
+    this.store.dispatch(new TodoActions.GetTodos());
+    this.todos$ = this.store.select(getTodos);
+    console.log('select = ' + this.todos$);
     this.store.subscribe((state) => {
       console.log('state', state);
     }); 

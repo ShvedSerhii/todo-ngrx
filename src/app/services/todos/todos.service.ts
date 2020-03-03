@@ -30,4 +30,35 @@ export class TodosService {
   }
     return this.http.post(url, data, httpOptions); 
   } 
+
+  getTodos(): Observable<any> {
+    const url = `${this.BASE_URL}/api/todolist`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-apikey": this.cookie.getCookie('token')
+      })
+    };
+    return this.http.get(url, httpOptions); 
+  } 
+
+  deleteTodos(payload: Todo): Observable<any> {
+    const url = `${this.BASE_URL}/api/todolist/${payload._id}`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-apikey": this.cookie.getCookie('token')
+      })
+    };
+    return this.http.delete(url, httpOptions); 
+  } 
+
+  updateTodo(payload: Todo): Observable<any> {
+    const url = `${this.BASE_URL}/api/todolist/${payload._id}`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "x-apikey": this.cookie.getCookie('token'),
+        "Content-Type": 'application/json'
+      })
+    };
+    return this.http.put(url, payload, httpOptions); 
+  } 
 }

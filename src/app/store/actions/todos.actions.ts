@@ -2,6 +2,8 @@ import { Action } from "@ngrx/store";
 import { Todo } from 'src/app/models/todos.model';
 
 export enum TodosActionTypes {
+SET_TODOS = "[todo] SET_TODO",
+GET_TODOS = "[todo] GET_TODO",
 ADD_TODO = "[todo] ADD_TODO",
 ADD_TODO_SUCCESS = "[todo] ADD_TODO_SUCCESS",
 UPDATE_TODO = "[todo] UPDATE_TODO",
@@ -12,6 +14,15 @@ COMPLETE = "[filter] COMPLETE",
 PENDING = "[filter] PENDING",
 DELETED = "[filter] DELETED",
 ALL = "[filter] ALL",
+}
+
+export class SetTodos implements Action {
+  readonly type = TodosActionTypes.SET_TODOS;
+  constructor(public payload: any) {}
+}
+
+export class GetTodos implements Action {
+  readonly type = TodosActionTypes.GET_TODOS;
 }
 
 export class AddTodo implements Action {
@@ -60,6 +71,8 @@ export class All implements Action {
 } 
 
 export type AllTodosActions =
+  | GetTodos 
+  | SetTodos
   | AddTodo
   | AddTodoSuccess
   | UpdateTodo
