@@ -59,6 +59,14 @@ export class TodosService {
         "Content-Type": 'application/json'
       })
     };
-    return this.http.put(url, JSON.stringify(payload), httpOptions);  
-  } 
+    const data = {
+      "userId": this.cookie.getCookie('token'),
+      "title": payload.title,
+      "description": payload.title,
+      "status": payload.status, 
+      "selected": false
+  };
+    return this.http.put(url, JSON.stringify(data), httpOptions); 
+  }  
 }
+ 

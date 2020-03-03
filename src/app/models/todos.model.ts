@@ -1,7 +1,7 @@
 export interface Todo {
     _id?: string;
     title?: string;
-    status?: boolean;
+    status?: string;
     isEditabled?: boolean;
     isVisible?: boolean;
 }

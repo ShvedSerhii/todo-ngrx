@@ -27,10 +27,10 @@ export class TodosComponent {
       this.store.dispatch(new TodoActions.AddTodo(newTodo.title));
   }
 
-  onCompletedTodo(todo) {
-    todo.status = !todo.status;
+  onCompletedTodo(todo: Todo) {
+    todo.status = (todo.status === 'done') ? 'undone' : 'done';
     this.store.dispatch(new TodoActions.UpdateTodo(todo));
-  }
+  } 
 
   onDeletedTodo(todo) {
     this.store.dispatch(new TodoActions.DeleteTodo(todo));
