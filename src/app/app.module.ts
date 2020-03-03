@@ -29,7 +29,7 @@ import { ToDoComponent } from './components/todos/to-do-list/to-do/to-do.compone
 import { NewTodoComponent } from './components/todos/to-do-list/new-todo/new-todo.component';
 import { TodosService } from './services/todos/todos.service';
 import { TodosEffects } from './store/effects/todos.effects';
-
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -45,6 +45,7 @@ import { TodosEffects } from './store/effects/todos.effects';
   ],
   imports: [
     BrowserModule,
+    ScrollingModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
