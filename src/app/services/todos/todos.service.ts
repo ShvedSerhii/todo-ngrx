@@ -41,7 +41,7 @@ export class TodosService {
     return this.http.get(url, httpOptions); 
   } 
 
-  deleteTodos(payload: Todo): Observable<any> {
+  deleteTodo(payload: Todo): Observable<any> {
     const url = `${this.BASE_URL}/api/todolist/${payload._id}`;
     const httpOptions = {
       headers: new HttpHeaders({
@@ -59,6 +59,6 @@ export class TodosService {
         "Content-Type": 'application/json'
       })
     };
-    return this.http.put(url, payload, httpOptions); 
+    return this.http.put(url, JSON.stringify(payload), httpOptions);  
   } 
 }

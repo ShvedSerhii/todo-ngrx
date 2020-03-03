@@ -1,7 +1,7 @@
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { TodosActionTypes, AddTodo, AddTodoSuccess, GetTodos, SetTodos } from '../actions/todos.actions';
+import { TodosActionTypes, AddTodo, AddTodoSuccess, GetTodos, SetTodos, DeleteTodo, UpdateTodo } from '../actions/todos.actions';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import { TodosService } from 'src/app/services/todos/todos.service';
 import { Todo } from 'src/app/models/todos.model';
@@ -35,7 +35,7 @@ export class TodosEffects {
     map((action: AddTodo) => action.payload),
     switchMap(payload => {
       return this.todosServices.addTodo(payload).pipe(
-        map((data) => {
+        map(() => {
           return new GetTodos();
         }),
         // catchError((error) => {
@@ -44,5 +44,34 @@ export class TodosEffects {
         );
     }));
 
+    @Effect()
+    DeleteTodo: Observable<any> = this.actions.pipe(
+      ofType(TodosActionTypes.DELETE_TODO),
+      map((action: DeleteTodo) => action.payload),
+      switchMap(payload => {
+        return this.todosServices.deleteTodo(payload).pipe(
+          map(() => {
+            return new GetTodos();
+          }),
+          // catchError((error) => {
+          //   return of(new LogInFailure({ error }));
+          // })
+          );
+      })); 
+  
+      @Effect()
+      UpdateTodo: Observable<any> = this.actions.pipe(
+        ofType(TodosActionTypes.UPDATE_TODO),
+        map((action: UpdateTodo) => action.payload),
+        switchMap(payload => {
+          return this.todosServices.updateTodo(payload).pipe(
+            map(() => {
+              return new GetTodos();
+            }), 
+            // catchError((error) => {
+            //   return of(new LogInFailure({ error }));
+            // })
+            );
+        })); 
   
 }

@@ -28,7 +28,8 @@ export class TodosComponent {
   }
 
   onCompletedTodo(todo) {
-    this.store.dispatch(new TodoActions.CompleteTodo(todo));
+    todo.status = !todo.status;
+    this.store.dispatch(new TodoActions.UpdateTodo(todo));
   }
 
   onDeletedTodo(todo) {
