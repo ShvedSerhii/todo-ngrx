@@ -1,4 +1,4 @@
-<li class="todo-card-item">
+<div class="todo-card-item">
     <mat-card class="todo-card" *ngIf="!todo?.isEditabled && !todo.isVisible">
       <mat-card-header>
         <mat-card-title [class.completed]="todo.status == 'done'">
@@ -24,4 +24,4 @@
         <button mat-raised-button color="warn" (click)="onDeletedTodo(todo)">Delete</button>
       </mat-card-actions>
     </mat-card>
-  </li>
+  </div>
