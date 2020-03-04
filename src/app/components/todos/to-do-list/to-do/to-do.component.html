@@ -5,7 +5,7 @@
           <h3>{{todo.title}}</h3>
         </mat-card-title>
       </mat-card-header>
-      <mat-card-content>{{todo.description}}</mat-card-content>
+      <mat-card-content><p>{{todo.description}}</p></mat-card-content>  
       <mat-card-actions>
         <button mat-raised-button color="primary" (click)="onCompletedTodo(todo)">Done</button>
         <button mat-raised-button color="accent" (click)="onEditTodo(todo)">Edit</button>
