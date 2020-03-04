@@ -14,6 +14,7 @@ import { IAppState } from 'src/app/store/state/app.state';
 export class RegisterComponent {
   public model: RegisterModel;
   public form: RegisterForm;
+  public startSpinner = false;
   constructor(
     private router: Router,
     private store: Store<IAppState>
@@ -23,6 +24,7 @@ export class RegisterComponent {
   }
 
   public onSubmit(form): void {
+    this.startSpinner = true;
     this.store.dispatch(new SignUp(form.value));
   }
 }

@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div class="login-container">
-      <h1>Login</h1>
-      <form class="login-form" [formGroup]="form.formGroup"
+      <h1>Login</h1>  
+      <form *ngIf="!startSpinner" form class="login-form" [formGroup]="form.formGroup"
         (ngSubmit)="onSubmit(form.formGroup)">
         <mat-form-field>
           <input matInput placeholder="Email" formControlName="email">
@@ -22,5 +22,6 @@
           <a routerLink="/registration" class="register">Registration</a>
         </div>
       </form>
+      <mat-spinner *ngIf="startSpinner" class="login-form"></mat-spinner>
     </div>
   </div>

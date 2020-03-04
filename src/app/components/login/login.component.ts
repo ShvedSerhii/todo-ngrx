@@ -16,6 +16,7 @@ import { IAppState } from 'src/app/store/state/app.state';
 export class LoginComponent {
   public model: LoginModel;
   public form: LoginForm;
+  public startSpinner = false;
   constructor(
     private store: Store<IAppState>,
     private router: Router,
@@ -25,6 +26,7 @@ export class LoginComponent {
   }
 
   public onSubmit(form): void {
+    this.startSpinner = true;
     this.store.dispatch(new LogIn(form.value));
   }
 }
