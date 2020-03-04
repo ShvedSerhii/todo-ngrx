@@ -24,7 +24,7 @@ export class TodosComponent {
   }
 
   onAddTodo(newTodo) {
-      this.store.dispatch(new TodoActions.AddTodo(newTodo.title));
+      this.store.dispatch(new TodoActions.AddTodo(newTodo));
   }
 
   onCompletedTodo(todo: Todo) {

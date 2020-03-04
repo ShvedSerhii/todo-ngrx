@@ -13,7 +13,7 @@ export class TodosService {
 
   constructor(private http: HttpClient, private cookie: CookiesService) {}
 
-  addTodo(payload: string): Observable<any> {
+  addTodo(payload: Todo): Observable<any> {
     const url = `${this.BASE_URL}/api/todolist`;
     const httpOptions = {
       headers: new HttpHeaders({
@@ -23,8 +23,8 @@ export class TodosService {
     };
     const data = {
       userId: this.cookie.getCookie('token'),
-      title: payload,
-      description: payload,
+      title: payload.title,
+      description: payload.description,
       status: 'undone',
       selected: false
   };
@@ -62,7 +62,7 @@ export class TodosService {
     const data = {
       userId: this.cookie.getCookie('token'),
       title: payload.title,
-      description: payload.title,
+      description: payload.description, 
       status: payload.status,
       selected: false
   };

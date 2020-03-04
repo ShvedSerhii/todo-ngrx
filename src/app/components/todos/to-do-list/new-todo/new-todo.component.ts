@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Todo } from 'src/app/models/todos.model';
+import NewTodoForm from './new-todo.form';
 
 @Component({
   selector: 'app-new-todo',
@@ -6,22 +8,19 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./new-todo.component.scss']
 })
 export class NewTodoComponent implements OnInit {
-  // tslint:disable-next-line:no-output-on-prefix
   @Output() onCreateTodo;
-  newTodo: string;
+  public model: Todo;
+  public form: NewTodoForm;
   constructor() {
+    this.model = new Todo();
+    this.form = new NewTodoForm(this.model);
     this.onCreateTodo = new EventEmitter();
   }
 
-  ngOnInit() {
-    this.newTodo = '';
-  }
+  ngOnInit() { }
 
   onSaveTodo() {
-    if (this.newTodo) {
-      this.onCreateTodo.emit({title: this.newTodo});
-    }
-    this.newTodo = '';
+    this.onCreateTodo.emit(this.model);
   }
 
 }

@@ -1,6 +1,10 @@
-<form class="new-todo-form">
+<form class="new-todo-form" [formGroup]="form.formGroup"
+(ngSubmit)="onSaveTodo(form.formGroup)">
     <mat-form-field class="new-todo-full-width">
-      <input matInput type="text"  name="new-todo" placeholder="Add a todo" [(ngModel)]="newTodo" (keyup.enter)="onSaveTodo();">
+      <input matInput placeholder="Add a title" formControlName="title">
+    </mat-form-field>
+    <mat-form-field class="new-todo-full-width">
+      <input matInput placeholder="Add a description" formControlName="description">
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="onSaveTodo();">Add</button>
   </form>
