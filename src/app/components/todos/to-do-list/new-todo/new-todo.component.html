@@ -6,5 +6,5 @@
     <mat-form-field class="new-todo-full-width">
       <input matInput placeholder="Add a description" formControlName="description">
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="onSaveTodo();">Add</button>
+    <button mat-raised-button color="primary" [disabled]="form.formGroup.invalid" (click)="onSaveTodo();">Add</button>
   </form>
