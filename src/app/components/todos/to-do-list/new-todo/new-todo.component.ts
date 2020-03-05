@@ -17,10 +17,9 @@ export class NewTodoComponent implements OnInit {
     this.onCreateTodo = new EventEmitter();
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   onSaveTodo() {
     this.onCreateTodo.emit(this.model);
   }
-
 }

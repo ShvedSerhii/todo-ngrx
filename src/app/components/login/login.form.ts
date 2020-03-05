@@ -5,9 +5,7 @@ import {
   Validators
 } from '@angular/forms';
 import { LoginModel } from './login.model';
-/*
-    ReactiveForm structure class
-  */
+
 export default class LoginForm {
   private formBuilder: FormBuilder;
   public formGroup: FormGroup;
@@ -19,7 +17,6 @@ export default class LoginForm {
     this.createForm();
   }
 
-  // Create form fields with validation rules
   public createForm() {
     this.formGroup = this.formBuilder.group({
       email: new FormControl(this.model.email, {
@@ -36,7 +33,6 @@ export default class LoginForm {
       })
     });
 
-    // form update
     this.formGroup.valueChanges.subscribe((data: any) => {
       this.model.email = data.email;
       this.model.password = data.password;

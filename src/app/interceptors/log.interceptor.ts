@@ -20,19 +20,18 @@ export class LogInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    
-    console.log('[REQUEST]: ' + JSON.stringify(req));
+    console.log('***INTERCEPTOR*** [REQUEST]: ' + JSON.stringify(req));
 
     return next.handle(req).pipe(
       tap(
         event => {
           if (event instanceof HttpResponse) {
-            console.log('[RESPONSE]: ' + JSON.stringify(event));
+            console.log('***INTERCEPTOR*** [RESPONSE]: ' + JSON.stringify(event));
           }
         },
         err => {
           if (err instanceof HttpErrorResponse) {
-            console.log('[ERROR]: ' + JSON.stringify(err));
+            console.log('***INTERCEPTOR*** [ERROR]: ' + JSON.stringify(err));
           }
         }
       )

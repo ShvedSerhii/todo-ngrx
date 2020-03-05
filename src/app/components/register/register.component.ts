@@ -15,10 +15,7 @@ export class RegisterComponent {
   public model: RegisterModel;
   public form: RegisterForm;
   public startSpinner = false;
-  constructor(
-    private router: Router,
-    private store: Store<IAppState>
-  ) {
+  constructor(private router: Router, private store: Store<IAppState>) {
     this.model = new RegisterModel();
     this.form = new RegisterForm(this.model);
   }

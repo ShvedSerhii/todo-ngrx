@@ -7,4 +7,3 @@ export interface ITodosState {
 export const initialTodosState: ITodosState = {
   todos: []
 };
-

@@ -5,9 +5,7 @@ import {
   Validators
 } from '@angular/forms';
 import { RegisterModel } from './register.model';
-/*
-    ReactiveForm structure class
-  */
+
 export default class RegisterForm {
   private formBuilder: FormBuilder;
   public formGroup: FormGroup;
@@ -19,7 +17,6 @@ export default class RegisterForm {
     this.createForm();
   }
 
-  // Create form fields with validation rules
   public createForm() {
     this.formGroup = this.formBuilder.group({
       email: new FormControl(this.model.email, {
@@ -62,7 +59,6 @@ export default class RegisterForm {
       })
     });
 
-    // form update
     this.formGroup.valueChanges.subscribe((data: any) => {
       this.model.email = data.email;
       this.model.password = data.password;

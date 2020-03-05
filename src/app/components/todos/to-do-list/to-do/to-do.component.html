@@ -1,33 +1,37 @@
 <div class="todo-card-item">
-    <mat-card class="todo-card" *ngIf="!todo?.isEditabled && !todo.isVisible">
-      <mat-card-header>
-        <mat-card-title [class.completed]="todo.status == 'done'">
-          <h3>{{todo.title}}</h3>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content><p>{{todo.description}}</p></mat-card-content>  
-      <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="onCompletedTodo(todo)">Done</button>
-        <button mat-raised-button color="accent" (click)="onEditTodo(todo)">Edit</button>
-        <button mat-raised-button color="warn" (click)="onDeletedTodo(todo)">Delete</button>
-      </mat-card-actions>
-    </mat-card>
-    <mat-card class="todo-card" *ngIf="todo?.isEditabled  && !todo?.isVisible">
-      <mat-card-header>
-        <mat-card-title>
-          <form>
-            <mat-form-field>
-              <input matInput type="text" name="todo-title-{{todo._id}}" focused="true" [placeholder]="'Edit title'" [(ngModel)]="todo.title">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput type="text" name="todo-description-{{todo._id}}" focused="false" [placeholder]="'Edit description'" [(ngModel)]="todo.description">
-            </mat-form-field>
-          </form>
-        </mat-card-title>
-      </mat-card-header> 
-      <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="onUpdateTodo(todo)">Update</button>
-        <button mat-raised-button color="warn" (click)="onDeletedTodo(todo)">Delete</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
+  <mat-card class="todo-card" *ngIf="!todo?.isEditabled && !todo.isVisible">
+    <mat-card-header>
+      <mat-card-title [class.completed]="todo.status == 'done'">
+        <h3>{{todo.title}}</h3>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{todo.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onCompletedTodo(todo)">Done</button>
+      <button mat-raised-button color="accent" (click)="onEditTodo(todo)">Edit</button>
+      <button mat-raised-button color="warn" (click)="onDeletedTodo(todo)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card class="todo-card" *ngIf="todo?.isEditabled  && !todo?.isVisible">
+    <mat-card-header>
+      <mat-card-title>
+        <form>
+          <mat-form-field>
+            <input matInput type="text" name="todo-title-{{todo._id}}" focused="true" [placeholder]="'Edit title'"
+              [(ngModel)]="todo.title">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="text" name="todo-description-{{todo._id}}" focused="false"
+              [placeholder]="'Edit description'" [(ngModel)]="todo.description">
+          </mat-form-field>
+        </form>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onUpdateTodo(todo)">Update</button>
+      <button mat-raised-button color="warn" (click)="onDeletedTodo(todo)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

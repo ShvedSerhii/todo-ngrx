@@ -10,8 +10,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
-  constructor(private store: Store<IAppState>, public auth: AuthService) { }
+  constructor(private store: Store<IAppState>, public auth: AuthService) {}
 
   logout() {
     this.store.dispatch(new LogOut());

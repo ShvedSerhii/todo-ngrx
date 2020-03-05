@@ -17,10 +17,7 @@ export class LoginComponent {
   public model: LoginModel;
   public form: LoginForm;
   public startSpinner = false;
-  constructor(
-    private store: Store<IAppState>,
-    private router: Router,
-  ) {
+  constructor(private store: Store<IAppState>, private router: Router) {
     this.model = new LoginModel();
     this.form = new LoginForm(this.model);
   }

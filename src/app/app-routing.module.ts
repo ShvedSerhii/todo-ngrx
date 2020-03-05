@@ -8,13 +8,12 @@ import { LogoutGuard } from './guards/logout.guard';
 import { PageGuard } from './guards/page.guard';
 import { TodosComponent } from './components/todos/todos.component';
 
-
 const routes: Routes = [
-  { path: 'home', component: TodosComponent, canActivate: [PageGuard]},
-  { path: 'login', component: LoginComponent, canActivate: [LogoutGuard]},
-  { path: 'registration', component: RegisterComponent, canActivate: [LogoutGuard]},
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: '**', component: NotFoundComponent, canActivate: [PageGuard]}
+  { path: 'home', component: TodosComponent, canActivate: [PageGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [LogoutGuard] },
+  { path: 'registration', component: RegisterComponent, canActivate: [LogoutGuard] },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent, canActivate: [PageGuard] }
 ];
 
 @NgModule({
@@ -22,4 +21,4 @@ const routes: Routes = [
   providers: [PageGuard, LogoutGuard],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

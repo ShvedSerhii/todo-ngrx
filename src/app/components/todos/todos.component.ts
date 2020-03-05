@@ -17,18 +17,14 @@ export class TodosComponent {
   constructor(private store: Store<IAppState>) {
     this.store.dispatch(new TodoActions.GetTodos());
     this.todos$ = this.store.select(getTodos);
-    console.log('select = ' + this.todos$);
-    this.store.subscribe((state) => {
-      console.log('state', state);
-    });
   }
 
   onAddTodo(newTodo) {
-      this.store.dispatch(new TodoActions.AddTodo(newTodo));
+    this.store.dispatch(new TodoActions.AddTodo(newTodo));
   }
 
   onCompletedTodo(todo: Todo) {
-    todo.status = (todo.status === 'done') ? 'undone' : 'done';
+    todo.status = todo.status === 'done' ? 'undone' : 'done';
     this.store.dispatch(new TodoActions.UpdateTodo(todo));
   }
 
@@ -46,5 +42,4 @@ export class TodosComponent {
   onShow(filter) {
     this.store.dispatch(new TodoActions[filter]());
   }
-
 }

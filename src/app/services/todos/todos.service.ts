@@ -8,7 +8,6 @@ import { Todo } from 'src/app/models/todos.model';
   providedIn: 'root'
 })
 export class TodosService {
-
   private BASE_URL = 'https://lectorium.herokuapp.com';
 
   constructor(private http: HttpClient, private cookie: CookiesService) {}
@@ -27,7 +26,7 @@ export class TodosService {
       description: payload.description,
       status: 'undone',
       selected: false
-  };
+    };
     return this.http.post(url, data, httpOptions);
   }
 
@@ -62,11 +61,10 @@ export class TodosService {
     const data = {
       userId: this.cookie.getCookie('token'),
       title: payload.title,
-      description: payload.description, 
+      description: payload.description,
       status: payload.status,
       selected: false
-  };
+    };
     return this.http.put(url, JSON.stringify(data), httpOptions);
   }
 }
-

@@ -1,14 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from 'src/app/models/todos.model';
-
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './to-do-list.component.html',
   styleUrls: ['./to-do-list.component.scss']
 })
-export class ToDoListComponent implements OnInit {
-
+export class ToDoListComponent {
   @Input() todos: Array<Todo>;
   @Output() completedTodo: EventEmitter<Todo>;
   @Output() deletedTodo: EventEmitter<Todo>;
@@ -17,12 +15,9 @@ export class ToDoListComponent implements OnInit {
 
   constructor() {
     this.completedTodo = new EventEmitter<Todo>();
-    this.deletedTodo   = new EventEmitter<Todo>();
-    this.editTodo      = new EventEmitter<Todo>();
-    this.updateTodo    = new EventEmitter<Todo>();
-  }
-
-  ngOnInit() {
+    this.deletedTodo = new EventEmitter<Todo>();
+    this.editTodo = new EventEmitter<Todo>();
+    this.updateTodo = new EventEmitter<Todo>();
   }
 
   onCompletedTodo(todo) {
@@ -40,5 +35,4 @@ export class ToDoListComponent implements OnInit {
   onUpdateTodo(todo) {
     this.updateTodo.emit(todo);
   }
-
 }

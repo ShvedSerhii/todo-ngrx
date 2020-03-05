@@ -2,16 +2,16 @@ import { Action } from '@ngrx/store';
 import { Todo } from 'src/app/models/todos.model';
 
 export enum TodosActionTypes {
-SET_TODOS = '[todo] SET_TODO',
-GET_TODOS = '[todo] GET_TODO',
-ADD_TODO = '[todo] ADD_TODO',
-UPDATE_TODO = '[todo] UPDATE_TODO',
-DELETE_TODO = '[todo] DELETE_TODO',
-COMPLETE_TODO = '[todo] COMPLETE_TODO',
-EDIT_TODO = '[todo] EDIT_TODO',
-COMPLETE = '[filter] COMPLETE',
-PENDING = '[filter] PENDING',
-ALL = '[filter] ALL',
+  SET_TODOS = '[todo] SET_TODO',
+  GET_TODOS = '[todo] GET_TODO',
+  ADD_TODO = '[todo] ADD_TODO',
+  UPDATE_TODO = '[todo] UPDATE_TODO',
+  DELETE_TODO = '[todo] DELETE_TODO',
+  COMPLETE_TODO = '[todo] COMPLETE_TODO',
+  EDIT_TODO = '[todo] EDIT_TODO',
+  COMPLETE = '[filter] COMPLETE',
+  PENDING = '[filter] PENDING',
+  ALL = '[filter] ALL'
 }
 
 export class SetTodos implements Action {
@@ -70,4 +70,3 @@ export type AllTodosActions =
   | Complete
   | Pending
   | All;
-

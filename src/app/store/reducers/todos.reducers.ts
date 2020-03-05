@@ -4,7 +4,10 @@ import { initialTodosState, ITodosState } from '../state/todos.state';
 import { TodosActionTypes, AllTodosActions } from '../actions/todos.actions';
 import { of } from 'rxjs';
 
-export function todosReducer(oldState = initialTodosState, action: AllTodosActions): ITodosState {
+export function todosReducer(
+  oldState = initialTodosState,
+  action: AllTodosActions
+): ITodosState {
   const state = JSON.parse(JSON.stringify(oldState));
   switch (action.type) {
     case TodosActionTypes.SET_TODOS: {
